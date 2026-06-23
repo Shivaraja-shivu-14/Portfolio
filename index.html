@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivaraja J | Full Stack Developer</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#0f172a;
+            color:white;
+            padding: 70px;
+        }
+
+        .navbar{
+            background: lightyellow;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .navbar-brand{
+            font-weight: bold;
+            font-size: 24px;
+            color: black;
+        
+        }
+        .hero{
+            min-height:90vh;
+            display:flex;
+            align-items:center;
+        }
+
+        .hero h1{
+            font-size:60px;
+            font-weight:bold;
+        }
+
+        .highlight{
+            color:#38bdf8;
+        }
+
+        .hero p{
+            font-size:20px;
+            color:#cbd5e1;
+            margin-top:15px;
+        }
+
+        .btn-custom{
+            padding:12px 25px;
+            margin-right:10px;
+        }
+
+        .navbar-nav .nav-link{
+            color: black !important;
+            font-size: 18px;
+            margin: 5px 8px;
+            padding: 6px 14px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .navbar-nav .nav-link:hover{
+            background: #38bdf8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .navbar-nav .nav-link.active{
+            background: #38bdf8;
+            color: white !important;
+        }
+
+        .profile-img{
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid #E6E6FA;
+            box-shadow: 0 10px 30px rgba(56, 248, 78, 0.3);
+            transition: 0.3s ease;
+            }
+
+        .profile-img:hover{
+            transform: scale(1.05);
+        }
+        
+        .section-title{
+            text-align:center;
+            margin-bottom:50px;
+            font-weight:bold;
+        }
+
+        .skill-card{
+            background:#1e293b;
+            padding:20px;
+            border-radius:15px;
+            text-align:center;
+            transition:.3s;
+        }
+
+        .skill-card:hover{
+            transform:translateY(-10px);
+        }
+
+        footer{
+            background:#111827;
+            text-align:center;
+            padding:20px;
+            margin-top:50px;
+        }
+
+         .impact{
+            color: #FAEBD7;
+            font-weight:bold;
+            text-align:center;
+        }
+
+        
+        .about-box{
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+.about-box h2{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.about-box p{
+    color:#d1d5db;
+    line-height:1.8;
+    font-size:17px;
+    text-align:justify;
+}
+
+.about-highlights{
+    margin-top:25px;
+    text-align:center;
+}
+
+.about-highlights span{
+    display:inline-block;
+    background:#1e293b;
+    color:#38bdf8;
+    padding:8px 15px;
+    margin:5px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.about-highlights span:hover{
+    background: black;
+    color:white;
+}
+
+
+.skills-box{
+    background:#111827;
+    padding: 40px;
+    width: 800px;
+    align-items: center;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+.skills-box h2{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+
+.skill-item{
+    margin-bottom:20px;
+}
+
+.skill-item span{
+    display:block;
+    margin-bottom:8px;
+    font-size:17px;
+    font-weight:600;
+    color:white;
+}
+
+.progress{
+    height:25px;
+    border-radius:20px;
+    background:#1e293b;
+    overflow:hidden;
+}
+
+.progress-bar{
+    background:#38bdf8;
+    color: black;
+    font-weight:bold;
+    line-height:25px;
+    text-align:center;
+    transition:1s;
+}
+
+.projects-box{
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+.projects-box h2{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:35px;
+    font-weight:bold;
+}
+
+.project-card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    height:100%;
+    transition:0.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(197, 206, 210, 0.3);
+}
+
+.project-card h4{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.project-card p{
+    color:#d1d5db;
+    line-height:1.7;
+}
+
+.contact-box{
+    background:#111827;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+.contact-box h2{
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.contact-text{
+    color:#d1d5db;
+    margin-bottom:25px;
+}
+
+.contact-info p{
+    font-size:18px;
+    margin:15px 0;
+}
+
+.contact-info a{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.contact-info a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Shivaraja J</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="home.php" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Hero Section -->
+
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-md-7">
+                <h1>
+                    Hi, I'm
+                    <span class="highlight">Shivaraja J</span>
+                </h1>
+
+                <h3 class="mt-3">
+                    Full Stack Developer
+                </h3>
+
+                <p>
+                    I develop modern web applications using
+                    PHP, MySQL, JavaScript, HTML and CSS.
+                    Passionate about building practical software
+                    solutions and solving real-world problems.
+                </p>
+
+                <div class="mt-4">
+                    <a href="project.html" class="btn btn-info btn-custom">
+                        View Projects
+                    </a>
+
+                    <a href="Shivaraja J.pdf" class="btn btn-outline-light btn-custom">
+                        Download Resume
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-5 text-center">
+                <img src="image.jpeg"
+                class="profile-img img-fluid"
+                alt="Profile">
+            </div>    
+
+
+        </div>
+    </div>
+
+</section>
+
+<!-- About Section -->
+<section id="about" class="container py-5">
+
+    <div class="about-box">
+
+        <center>
+            <h2><span class="impact">About Me</span></h2>
+            <hr color= white;>
+        </center>
+        <br>
+        
+        <p>
+            Hello! I'm <strong>Shivaraja J</strong>, a Bachelor of Computer Applications (BCA)
+            graduate and aspiring Full Stack Developer passionate about building practical,
+            secure, and user-friendly software solutions.
+        </p>
+
+        <p>
+            I have experience developing applications using PHP, MySQL, Python,
+            HTML, CSS, JavaScript, C#, and Oracle databases. My interest lies in
+            web development, database management, and security-focused applications.
+        </p>
+
+        <p>
+            Throughout my academic journey, I have developed projects including
+            a Malware Scanner & Threat Detection System, Cyber Fraud Detection System,
+            Restaurant Management System, and Train Ticket Booking System. These
+            projects strengthened my skills in backend development, frontend design,
+            database integration, and problem-solving.
+        </p>
+
+        <p>
+            I enjoy learning new technologies and continuously improving my skills.
+            My goal is to begin my professional career as a software developer and
+            contribute to innovative projects while growing into a highly skilled
+            full stack developer.
+        </p>
+
+        <div class="about-highlights">
+            <span>🎓 BCA Graduate</span>
+            <span>💻 Full Stack Developer</span>
+            <span>🐘 PHP</span>
+            <span>🗄️ MySQL</span>
+            <span>🐍 Python</span>
+            <span>🔐 Security Projects</span>
+            <span>🚀 Fast Learner</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Skills Section -->
+
+<center>
+<section id="skills" class="container py-5">
+
+    <div class="skills-box">
+
+        <h2><span class="impact">My Skills</span></h2>
+        <hr color= white;>
+
+
+        <div class="skill-item">
+            <span>PHP</span>
+            <div class="progress">
+                <div class="progress-bar" style="width:85%;">85%</div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <span>MySQL</span>
+            <div class="progress">
+                <div class="progress-bar" style="width:80%;">80%</div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <span>Python</span>
+            <div class="progress">
+                <div class="progress-bar" style="width:75%;">75%</div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <span>JavaScript</span>
+            <div class="progress">
+                <div class="progress-bar" style="width:70%;">70%</div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <span>HTML & CSS</span>
+            <div class="progress">
+                <div class="progress-bar" style="width:90%;">90%</div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <span>C# & .NET</span>
+            <div class="progress">
+                <div class="progress-bar" style="width:65%;">65%</div>
+            </div>
+        </div>
+
+    </div>
+
+</center>
+</section>
+
+
+<!-- Projects Section -->
+<section id="projects" class="container py-5">
+
+    <div class="projects-box">
+
+        <h2><span class="impact">Projects</span></h2>
+        <hr color= white;>
+
+        <br>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="project-card">
+                    <h4>Malware Scanner & Threat Detection System</h4>
+                    <p>
+                        Signature-based malware detection platform with file filtering,
+                        threat analysis, and dashboard reporting.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="project-card">
+                    <h4>Cyber Fraud Detection System</h4>
+                    <p>
+                        Real-time URL fraud detection system with risk scoring,
+                        phishing detection, and threat analytics.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="project-card">
+                    <h4>Restaurant Management System</h4>
+                    <p>
+                        Restaurant automation solution with billing, order tracking,
+                        kitchen display, and reservation management.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="project-card">
+                    <h4>Train Ticket Booking System</h4>
+                    <p>
+                        Railway reservation platform with seat allocation,
+                        schedule management, and booking automation.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="project.html" class="btn btn-info btn-lg">
+                View All Projects
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Contact -->
+
+<!-- Contact Section -->
+<section id="contact" class="container py-5">
+
+    <div class="contact-box">
+
+        <h2><span class="impact">Contact Me</span></h2>
+        <hr color= white;>
+
+        <p class="contact-text">
+            Feel free to contact me for job opportunities, project collaborations,
+            or professional discussions.
+        </p>
+
+        <div class="contact-info">
+
+        <p> Email:
+            <a href="mailto:shivushivraj644@gmail.com">
+            shivushivraj644@gmail.com
+            </a>
+        </p>
+
+        <p>
+            <a href="https://github.com/Shivaraja-shivu-14">    
+            GitHub</a>
+        </P>
+    
+        <p>  <a href="https://www.linkedin.com/in/shivaraja-j-424b65379/">
+            LinkedIn </a></p>
+    </div>
+
+        <div class="text-center mt-4">
+            <a href="Shivaraja J.pdf" download class="btn btn-info btn-lg">
+                Download Resume
+            </a>
+        </div>
+
+    </div>
+
+</section>
+<footer>
+    <p>
+        © <?php echo date("d-M-Y"); ?>
+        Shivaraja J | Full Stack Developer
+    </p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
